@@ -1,0 +1,14 @@
+.navbar {
+    grid-area: n;
+    background-color: greenyellow;
+    padding: 20px;
+    border: 4px solid white;
+}
+
+.item {
+    color: blue;
+}
+
+.active {
+    color: red; 
+}

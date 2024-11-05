@@ -1,0 +1,9 @@
+.Logo {
+    width: 100px;
+}
+
+.header {
+    grid-area: h;
+    background-color: greenyellow;
+    border: 4px solid white;
+}
