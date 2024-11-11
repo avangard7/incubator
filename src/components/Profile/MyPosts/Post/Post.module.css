@@ -1,0 +1,22 @@
+
+.item {
+
+    color: aqua; 
+
+}
+
+.item img {
+
+    border-radius: 50px; 
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.item ul {
+
+    color: black;
+    list-style-type:  none; 
+
+}
