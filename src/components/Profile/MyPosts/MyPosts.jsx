@@ -1,23 +1,40 @@
-import s from './MyPosts.module.css'; 
+import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = () => {
-    return (
+
+  let postsData = [
+
+    { id: 1, message: "Hi, how are you?", likeCounts: "2" },
+    { id: 2, message: "It's my first post", likeCounts: "326"  },
+
+  ]
+
+  return (
+    <div className={s.postsBlock}>
+      <div>
         <div>
-          <div>
-            <textarea></textarea>
-            <button>Add post</button> 
-          </div>
-          <div className={ s.posts }>
+          <textarea></textarea>
+        </div>
+        <div>
 
-          <Post message="Hi, how are you?" likecounts="2" /> 
-          <Post message="It's my first post" likecounts="7" /> 
+          <button className={s.postsButton}>
+            Add post
+          </button>
 
-          </div>
+        </div>
 
-        </div> 
+      </div>
+      <div className={s.posts}>
 
-    )
+        <Post message={ postsData[0].message} likecounts={ postsData[0].likeCounts } />
+        <Post message={ postsData[1].message} likecounts={ postsData[1].likeCounts } />
+
+      </div>
+
+    </div>
+
+  )
 }
 
 export default MyPosts; 

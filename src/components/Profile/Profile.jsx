@@ -1,27 +1,24 @@
-import More from './../../img/more.jpg'; 
+// import More from './../../img/more.jpg'; 
 import MyPosts from './MyPosts/MyPosts';
-import s from './Profile.module.css'; 
+import s from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = () => {
-    return (
-        <div>
-       
-        <div> 
-          <img className={ s.More } src={More} /> 
-        </div>  
-        <div> 
-          ava + description     
-        </div> 
-        <div> 
-          <div className={ s.posts }>
+  return (
+    <div>
 
-          <MyPosts /> 
+      <ProfileInfo />
 
-          </div>
-        </div> 
+      <div>
+        <div className={s.posts}>
 
-      </div> 
-    )
+          <MyPosts />
+
+        </div>
+      </div>
+
+    </div>
+  )
 }
 
 export default Profile; 

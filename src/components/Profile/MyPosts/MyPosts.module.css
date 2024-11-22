@@ -1,3 +1,17 @@
+
 .posts {
     padding: 10px;
+}
+
+.postsBlock {
+    padding: 10px;
+}
+            
+.postsButton {
+    background-color: brown;
+    cursor: pointer; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
 }
