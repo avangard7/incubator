@@ -2,15 +2,7 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-     
-  // let postsData = [
-
-  //   { id: 1, message: "Hi, how are you?", likeCounts: "2" },
-  //   { id: 2, message: "It's my first post", likeCounts: "326"  },
-  //   { id: 3, message: "Blabla", likeCounts: "56" },
-  //   { id: 4, message: "Dada", likeCounts: "982" },
-
-  // ]
+  // debugger 
 
   return (
     <div className={s.postsBlock}>
@@ -29,7 +21,6 @@ const MyPosts = (props) => {
       </div>
       <div className={s.posts}>
 
-        <Post postsData={ props.postsData } />
         <Post postsData={ props.postsData } />
 
       </div>
