@@ -1,0 +1,16 @@
+
+.sitebar { 
+    display: flex; 
+    font-size: 12px; 
+    color: slateblue; 
+    padding: 10px 0px;
+} 
+
+.item {
+    padding: 0px 5px;
+}
+
+.item img {
+    border-radius: 50px;  
+    width: 35px;
+}
