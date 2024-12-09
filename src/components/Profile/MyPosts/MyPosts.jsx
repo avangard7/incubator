@@ -5,24 +5,25 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
   // debugger 
 
-  let newPostElement = React.createRef();  
-// ------------------------------------------------------
- const addPost =  () => { 
-  // debugger   
-  let text = newPostElement.current.value;     
-  console.log( text );   
-  }; 
-// ------------------------------------------------------
+  let newPostElement = React.createRef();
+  // ------------------------------------------------------
+  let addPost = () => {
+    // debugger   
+    let text = newPostElement.current.value;
+    props.addPost(text);
+    // debugger 
+  };
+  // ------------------------------------------------------
 
   return (
     <div className={s.postsBlock}>
       <div>
         <div>
-          <textarea ref={ newPostElement }></textarea>  
+          <textarea ref={newPostElement}></textarea>
         </div>
         <div>
 
-          <button className={s.postsButton} onClick={ addPost } >
+          <button className={s.postsButton} onClick={addPost} >
             Add post
           </button>
 
@@ -31,7 +32,7 @@ const MyPosts = (props) => {
       </div>
       <div className={s.posts}>
 
-        <Post postsData={ props.postsData } />
+        <Post postsData={props.postsData} />
 
       </div>
 

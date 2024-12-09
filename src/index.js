@@ -5,12 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import state from './components/Redux/State';
+import { addPost } from './components/Redux/State';
 
+// addPost('SamuraiJS.COM');  
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App state={state} /*postsData={postsData} dialogsDahta={dialogsData} messagesData={messagesData}*/ />
+    <App state={state} addPost={ addPost } />
   </BrowserRouter>
 );
 
