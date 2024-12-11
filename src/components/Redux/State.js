@@ -1,4 +1,6 @@
 import React from "react";
+import { Render } from "./Render";
+
 
 const state = {
   profilePage: {
@@ -52,13 +54,10 @@ export let addPost = (postMessage) => {
   let newPost = {    
     id: 5, 
     message: postMessage, 
-    likeCounts: 0  
+    likeCounts: '0'  
   }  
   state.profilePage.postsData.push(newPost);  
-  console.log(
-    state.profilePage.postsData   
-  )   
-     
+  Render(state)     
 };   
 
 
