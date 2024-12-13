@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 import { rerenderEntireTree } from './../../index'; 
 
 export const Render = (props) => {
