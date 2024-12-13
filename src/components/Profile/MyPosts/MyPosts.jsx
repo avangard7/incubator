@@ -9,18 +9,24 @@ const MyPosts = (props) => {
   // ------------------------------------------------------
   let addPost = () => {
     // debugger   
-    let text = newPostElement.current.value;
-    props.addPost(text);
-    newPostElement.current.value = '';
-
+    props.addPost();
   };
   // ------------------------------------------------------
+
+  let onPostChange = () => {
+    // console.log( 'work' )  
+    let newText = newPostElement.current.value; 
+    props.updateNewPostText(newText);  
+  }  
 
   return (
     <div className={s.postsBlock}>
       <div>
         <div>
-          <textarea ref={newPostElement}></textarea>
+          <textarea 
+          onChange={ onPostChange } 
+          ref={newPostElement} 
+          value={props.newPostText} />  
         </div>
         <div>
 

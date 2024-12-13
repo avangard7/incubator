@@ -4,7 +4,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
   // debugger 
-
+  
   return (
     <div>
 
@@ -13,7 +13,7 @@ const Profile = (props) => {
       <div>
         <div className={s.posts}>
 
-          <MyPosts postsData={props.postsData} addPost={props.addPost} />
+          <MyPosts postsData={props.postsData} newPostText={props.newPostText} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />
 
         </div>
       </div>

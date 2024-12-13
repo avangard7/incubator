@@ -1,7 +1,6 @@
 import React from "react";
 import { Render } from "./Render";
 
-
 const state = {
   profilePage: {
     // ------------------------------------------------
@@ -13,6 +12,7 @@ const state = {
       { id: 4, message: "Dada", likeCounts: "982" },
 
     ],
+    newPostText: 'it-kamasutra.com' 	 
     // ------------------------------------------------
   },   
   messagesPage: {
@@ -47,19 +47,27 @@ const state = {
   }   
 };
 
+window.state = state; 
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
   // debugger 
 
   let newPost = {    
     id: 5, 
-    message: postMessage, 
+    message: state.profilePage.newPostText, 
     likeCounts: '0'  
   }  
   state.profilePage.postsData.push(newPost);  
+  state.profilePage.newPostText = ''; 
   Render(state)     
 };   
 
+export let updateNewPostText = (newText) => {  
+
+  state.profilePage.newPostText = newText; 
+  Render(state)     
+
+}; 
 
 export default state;  
   
