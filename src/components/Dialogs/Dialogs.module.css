@@ -1,20 +1,34 @@
-
 .dialogs {
-    display: flex;  
-} 
+    display: flex;
+}
 
 .dialogsItem {
-    padding: 10px; 
+    padding: 10px;
 }
 
 .messages {
-    padding: 10px; 
+    padding: 10px;
 }
 
-.dialog {
-}
+.dialog {}
 
 .active {
     color: gold;
-} 
+}
+
+.text_area {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.postsButton {
+    background-color: brown;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+}
+
 

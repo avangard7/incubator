@@ -33,7 +33,8 @@ const state = {
       { id: 4, message: "  kekw " },
       { id: 5, message: "  What you'r name ? " },
       { id: 6, message: "  How old are you ? " }
-    ]
+    ], 
+    newPostMessage: 'Hi how are you ?'   	 
     // ------------------------------------------------
   }, 
   navbar: {
@@ -49,6 +50,8 @@ const state = {
 
 window.state = state; 
 
+// ------------------------------------------------
+// --------- MyPostPushMessage ----------
 export let addPost = () => {
   // debugger 
 
@@ -64,7 +67,28 @@ export let addPost = () => {
 
 export let updateNewPostText = (newText) => {  
 
-  state.profilePage.newPostText = newText; 
+  state.profilePage.newPostMessage = newText; 
+  Render(state)     
+
+}; 
+// ------------------------------------------------
+// --------- MyDialogsMessage ----------
+export let addDialog = () => {
+  // debugger 
+
+  let newDialogObject = {    
+    id: 5, 
+    message: state.messagesPage.newPostMessage, 
+    likeCounts: '0'  
+  }  
+  state.messagesPage.messagesData.push(newDialogObject);  
+  state.messagesPage.newPostMessage = '';   
+  Render(state)     
+};   
+
+export let updateNewPostDialog = (newDialog) => {  
+  // debugger 
+  state.messagesPage.newPostMessage = newDialog; 
   Render(state)     
 
 }; 
