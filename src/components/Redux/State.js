@@ -67,7 +67,7 @@ export let addPost = () => {
 
 export let updateNewPostText = (newText) => {  
 
-  state.profilePage.newPostMessage = newText; 
+  state.profilePage.newPostText = newText; 
   Render(state)     
 
 }; 
