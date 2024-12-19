@@ -12,9 +12,28 @@ const state = {
       { id: 4, message: "Dada", likeCounts: "982" },
 
     ],
-    newPostText: 'it-kamasutra.com' 	 
+    newPostText: 'it-kamasutra.com',
     // ------------------------------------------------
-  },   
+    addPost() {
+      // debugger 
+
+      let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likeCounts: '0'
+      }
+      state.profilePage.postsData.push(newPost);
+      state.profilePage.newPostText = '';
+      Render(state)
+
+    },
+    updateNewPostText(newText) {
+
+      state.profilePage.newPostText = newText;
+      Render(state)
+
+    },
+  },
   messagesPage: {
     // ------------------------------------------------
     dialogsData: [
@@ -25,7 +44,7 @@ const state = {
       { id: 5, name: "Viktor" },
       { id: 6, name: "Valera" }
     ],
-  
+
     messagesData: [
       { id: 1, message: "  Hi " },
       { id: 2, message: "  How are you ? " },
@@ -33,65 +52,40 @@ const state = {
       { id: 4, message: "  kekw " },
       { id: 5, message: "  What you'r name ? " },
       { id: 6, message: "  How old are you ? " }
-    ], 
-    newPostMessage: 'Hi how are you ?'   	 
+    ],
+    newPostMessage: 'Hi how are you ?',   
     // ------------------------------------------------
-  }, 
+    addDialog() {
+      // debugger 
+    
+      let newDialogObject = {
+        id: 5,
+        message: state.messagesPage.newPostMessage,
+        likeCounts: '0'
+      }
+      state.messagesPage.messagesData.push(newDialogObject);
+      state.messagesPage.newPostMessage = '';
+      Render(state)
+    },  
+    
+    updateNewPostDialog(newDialog) {
+      // debugger 
+      state.messagesPage.newPostMessage = newDialog;
+      Render(state)
+    
+    }, 
+  },
   navbar: {
     // ------------------------------------------------
-  sitebar: [
-      { id: 1, name: " Jessica "},
-      { id: 2, name: " Alice "},
-      { id: 3, name: " Viktoria "}  
+    sitebar: [
+      { id: 1, name: " Jessica " },
+      { id: 2, name: " Alice " },
+      { id: 3, name: " Viktoria " }
     ]
     // ------------------------------------------------
-  }   
+  }
 };
 
-window.state = state; 
-
-// ------------------------------------------------
-// --------- MyPostPushMessage ----------
-export let addPost = () => {
-  // debugger 
-
-  let newPost = {    
-    id: 5, 
-    message: state.profilePage.newPostText, 
-    likeCounts: '0'  
-  }  
-  state.profilePage.postsData.push(newPost);  
-  state.profilePage.newPostText = ''; 
-  Render(state)     
-};   
-
-export let updateNewPostText = (newText) => {  
-
-  state.profilePage.newPostText = newText; 
-  Render(state)     
-
-}; 
-// ------------------------------------------------
-// --------- MyDialogsMessage ----------
-export let addDialog = () => {
-  // debugger 
-
-  let newDialogObject = {    
-    id: 5, 
-    message: state.messagesPage.newPostMessage, 
-    likeCounts: '0'  
-  }  
-  state.messagesPage.messagesData.push(newDialogObject);  
-  state.messagesPage.newPostMessage = '';   
-  Render(state)     
-};   
-
-export let updateNewPostDialog = (newDialog) => {  
-  // debugger 
-  state.messagesPage.newPostMessage = newDialog; 
-  Render(state)     
-
-}; 
-
-export default state;  
-  
+window.state = state;
+export default state;
+// ------------------------------------------------ // 
