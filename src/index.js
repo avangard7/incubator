@@ -4,16 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import state from './components/Redux/State';
+import store from './components/Redux/State';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export let rerenderEntireTree = () => {
   root.render(
-    <BrowserRouter>
-      <App state={state} />
-    </BrowserRouter>
+    <BrowserRouter>  
+      <App store={ store }   
+        addPost={ store.addPost.bind( store )}  
+        updateNewPostText={ store.updateNewPostText.bind( store )}   
+
+        addDialog={ store.addDialog.bind( store )}  
+        updateNewPostDialog={ store.updateNewPostDialog.bind( store )} />
+    </BrowserRouter>  
   );
 }
 

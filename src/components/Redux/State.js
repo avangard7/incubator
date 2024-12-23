@@ -1,91 +1,97 @@
-import React from "react";
+// import React from "react";
 import { Render } from "./Render";
 
-const state = {
-  profilePage: {
-    // ------------------------------------------------
-    postsData: [
+const store = {
 
-      { id: 1, message: "Hi, how are you?", likeCounts: "2" },
-      { id: 2, message: "It's my first post", likeCounts: "326" },
-      { id: 3, message: "Blabla", likeCounts: "56" },
-      { id: 4, message: "Dada", likeCounts: "982" },
+  _state: {
+    profilePage: {
+      // ------------------------------------------------
+      postsData: [
 
-    ],
-    newPostText: 'it-kamasutra.com',
-    // ------------------------------------------------
-    addPost() {
-      // debugger 
+        { id: 1, message: "Hi, how are you?", likeCounts: "2" },
+        { id: 2, message: "It's my first post", likeCounts: "326" },
+        { id: 3, message: "Blabla", likeCounts: "56" },
+        { id: 4, message: "Dada", likeCounts: "982" },
 
-      let newPost = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likeCounts: '0'
-      }
-      state.profilePage.postsData.push(newPost);
-      state.profilePage.newPostText = '';
-      Render(state)
+      ],
+      newPostText: 'it-kamasutra.com',
+      // ------------------------------------------------
 
     },
-    updateNewPostText(newText) {
+    messagesPage: {
+      // ------------------------------------------------
+      dialogsData: [
+        { id: 1, name: "Dimych" },
+        { id: 2, name: "Andrey" },
+        { id: 3, name: "Sveta" },
+        { id: 4, name: "Sasha" },
+        { id: 5, name: "Viktor" },
+        { id: 6, name: "Valera" }
+      ],
 
-      state.profilePage.newPostText = newText;
-      Render(state)
+      messagesData: [
+        { id: 1, message: "  Hi " },
+        { id: 2, message: "  How are you ? " },
+        { id: 3, message: "  Yo " },
+        { id: 4, message: "  kekw " },
+        { id: 5, message: "  What you'r name ? " },
+        { id: 6, message: "  How old are you ? " }
+      ],
+      newPostMessage: 'Hi how are you ?',
+      // ------------------------------------------------
 
     },
-  },
-  messagesPage: {
-    // ------------------------------------------------
-    dialogsData: [
-      { id: 1, name: "Dimych" },
-      { id: 2, name: "Andrey" },
-      { id: 3, name: "Sveta" },
-      { id: 4, name: "Sasha" },
-      { id: 5, name: "Viktor" },
-      { id: 6, name: "Valera" }
-    ],
 
-    messagesData: [
-      { id: 1, message: "  Hi " },
-      { id: 2, message: "  How are you ? " },
-      { id: 3, message: "  Yo " },
-      { id: 4, message: "  kekw " },
-      { id: 5, message: "  What you'r name ? " },
-      { id: 6, message: "  How old are you ? " }
-    ],
-    newPostMessage: 'Hi how are you ?',   
-    // ------------------------------------------------
-    addDialog() {
-      // debugger 
-    
-      let newDialogObject = {
-        id: 5,
-        message: state.messagesPage.newPostMessage,
-        likeCounts: '0'
-      }
-      state.messagesPage.messagesData.push(newDialogObject);
-      state.messagesPage.newPostMessage = '';
-      Render(state)
-    },  
-    
-    updateNewPostDialog(newDialog) {
-      // debugger 
-      state.messagesPage.newPostMessage = newDialog;
-      Render(state)
-    
-    }, 
+    navbar: {
+      sitebar: [
+        { id: 1, name: " Jessica " },
+        { id: 2, name: " Alice " },
+        { id: 3, name: " Viktoria " }
+      ]
+    }
+
   },
-  navbar: {
-    // ------------------------------------------------
-    sitebar: [
-      { id: 1, name: " Jessica " },
-      { id: 2, name: " Alice " },
-      { id: 3, name: " Viktoria " }
-    ]
-    // ------------------------------------------------
-  }
+  addPost() {
+    // debugger 
+
+    let newPost = {
+      id: 5,
+      message: store._state.profilePage.newPostText,
+      likeCounts: '0'
+    }
+    store._state.profilePage.postsData.push(newPost);
+    store._state.profilePage.newPostText = '';
+    Render(store._state);
+
+  },
+  updateNewPostText(newText) {
+
+    store._state.profilePage.newPostText = newText;
+    Render(store._state);
+
+  },  
+
+  addDialog() {  
+    // debugger 
+
+    let newDialogObject = {
+      id: 5,
+      message: store._state.messagesPage.newPostMessage,
+      likeCounts: '0'
+    }
+    store._state.messagesPage.messagesData.push(newDialogObject);
+    store._state.messagesPage.newPostMessage = '';
+    Render(store._state)
+  },
+
+  updateNewPostDialog(newDialog) {
+    // debugger 
+    store._state.messagesPage.newPostMessage = newDialog;
+    Render(store._state)
+
+  },
 };
 
-window.state = state;
-export default state;
+window.state = store;
+export default store;
 // ------------------------------------------------ // 

@@ -3,7 +3,6 @@ import ava_1 from './../../../../img/ava_1.png';
 
 
 const Post = (props) => {
-
   // debugger   
 
   let result = props.postsData.map((e) =>

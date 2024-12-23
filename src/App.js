@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { /* BrowserRouter,*/ Route, Routes } from 'react-router-dom';
 import './App.css';
 import Dialogs from './components/Dialogs/Dialogs';
 import Header from './components/header/Header';
@@ -17,25 +17,25 @@ const App = (props) => {
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar sitebar={props.state.navbar.sitebar} />
+      <Navbar sitebar={props.store._state.navbar.sitebar} />
       <div className="app-wrapper-content">
 
         <Routes>
-          <Route exact element={<Profile postsData={props.state.profilePage.postsData} />} path="/" />
+          <Route exact element={<Profile postsData={props.store._state.profilePage.postsData} />} path="/" />
 
           <Route element={<Profile
-            postsData={props.state.profilePage.postsData}
-            newPostText={props.state.profilePage.newPostText}
-            addPost={props.state.profilePage.addPost}
-            updateNewPostText={props.state.profilePage.updateNewPostText}
+            postsData={props.store._state.profilePage.postsData}
+            newPostText={props.store._state.profilePage.newPostText}
+            addPost={props.store.addPost}
+            updateNewPostText={props.store.updateNewPostText}
           />} path="/profile" />
 
           <Route element={<Dialogs
-            dialogsData={props.state.messagesPage.dialogsData}
-            messagesData={props.state.messagesPage.messagesData}
-            newPostMessage={props.state.messagesPage.newPostMessage}
-            addDialog={props.state.messagesPage.addDialog}
-            updateNewPostDialog={props.state.messagesPage.updateNewPostDialog}
+            dialogsData={props.store._state.messagesPage.dialogsData}
+            messagesData={props.store._state.messagesPage.messagesData}
+            newPostMessage={props.store._state.messagesPage.newPostMessage}
+            addDialog={props.store.addDialog}
+            updateNewPostDialog={props.store.updateNewPostDialog}
           />} path="/dialogs" />  
           
           <Route element={<News />} path="/news" />

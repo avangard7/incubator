@@ -17,6 +17,7 @@ const MyPosts = (props) => {
     // console.log( 'work' )  
     let newText = newPostElement.current.value; 
     props.updateNewPostText(newText);  
+    
   }  
 
   return (
