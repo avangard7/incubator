@@ -51,27 +51,8 @@ const store = {
     }
 
   },
-  addPost() {
-    // debugger 
 
-    let newPost = {
-      id: 5,
-      message: store._state.profilePage.newPostText,
-      likeCounts: '0'
-    }
-    store._state.profilePage.postsData.push(newPost);
-    store._state.profilePage.newPostText = '';
-    Render(store._state);
-
-  },
-  updateNewPostText(newText) {
-
-    store._state.profilePage.newPostText = newText;
-    Render(store._state);
-
-  },  
-
-  addDialog() {  
+  addDialog() {
     // debugger 
 
     let newDialogObject = {
@@ -90,6 +71,28 @@ const store = {
     Render(store._state)
 
   },
+
+  dispatch(action) { // { type: 'ADD-POST' }
+    // debugger    
+    if (action.type === 'ADD-POST') {
+      // debugger  
+      let newPost = {
+        id: 5,
+        message: store._state.profilePage.newPostText,
+        likeCounts: '0'
+      }
+      store._state.profilePage.postsData.push(newPost);
+      store._state.profilePage.newPostText = '';
+      Render(store._state);
+
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+
+      store._state.profilePage.newPostText = action.newText;
+      Render(store._state);
+
+    }
+  }
+
 };
 
 window.state = store;

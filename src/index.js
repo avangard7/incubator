@@ -13,11 +13,12 @@ export let rerenderEntireTree = () => {
   root.render(
     <BrowserRouter>  
       <App store={ store }   
-        addPost={ store.addPost.bind( store )}  
-        updateNewPostText={ store.updateNewPostText.bind( store )}   
+        dispatch={ store.dispatch.bind( store )}  
+        // updateNewPostText={ store.updateNewPostText.bind( store )}   
 
-        addDialog={ store.addDialog.bind( store )}  
-        updateNewPostDialog={ store.updateNewPostDialog.bind( store )} />
+        // addDialog={ store.addDialog.bind( store )}  
+        // updateNewPostDialog={ store.updateNewPostDialog.bind( store )}
+          />
     </BrowserRouter>  
   );
 }
