@@ -1,5 +1,8 @@
 // import React from "react";
 import { Render } from "./Render";
+  
+const ADD_POST = 'ADD-POST';   
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';   
 
 const store = {
 
@@ -74,7 +77,7 @@ const store = {
 
   dispatch(action) { // { type: 'ADD-POST' }
     // debugger    
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       // debugger  
       let newPost = {
         id: 5,
@@ -85,7 +88,7 @@ const store = {
       store._state.profilePage.newPostText = '';
       Render(store._state);
 
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
 
       store._state.profilePage.newPostText = action.newText;
       Render(store._state);
@@ -94,6 +97,13 @@ const store = {
   }
 
 };
+
+export const addPostActionCreator = () => ({ type: ADD_POST });   
+export const updateNewPostTextActionCreator = (newText) => {
+  return { 
+    type: UPDATE_NEW_POST_TEXT, newText: newText 
+  } 
+}  
 
 window.state = store;
 export default store;
