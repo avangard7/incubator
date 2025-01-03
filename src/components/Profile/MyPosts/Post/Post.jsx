@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './Post.module.css';
 import ava_1 from './../../../../img/ava_1.png';
 

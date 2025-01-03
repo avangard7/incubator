@@ -1,3 +1,4 @@
+import React from 'react';
 import More from './../../../img/more.jpg';
 import s from './ProfileInfo.module.css';
 

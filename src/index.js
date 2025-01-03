@@ -14,11 +14,7 @@ export let rerenderEntireTree = () => {
     <BrowserRouter>  
       <App store={ store }   
         dispatch={ store.dispatch.bind( store )}  
-        // updateNewPostText={ store.updateNewPostText.bind( store )}   
-
-        // addDialog={ store.addDialog.bind( store )}  
-        // updateNewPostDialog={ store.updateNewPostDialog.bind( store )}
-          />
+      />
     </BrowserRouter>  
   );
 }

@@ -1,8 +1,10 @@
 // import React from "react";
 import { Render } from "./Render";
-  
-const ADD_POST = 'ADD-POST';   
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';   
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_DIALOG = 'ADD-DIALOG';
+const UPDATE_NEW_DIALOG = 'UPDATE-NEW-DIALOG';
 
 const store = {
 
@@ -55,26 +57,6 @@ const store = {
 
   },
 
-  addDialog() {
-    // debugger 
-
-    let newDialogObject = {
-      id: 5,
-      message: store._state.messagesPage.newPostMessage,
-      likeCounts: '0'
-    }
-    store._state.messagesPage.messagesData.push(newDialogObject);
-    store._state.messagesPage.newPostMessage = '';
-    Render(store._state)
-  },
-
-  updateNewPostDialog(newDialog) {
-    // debugger 
-    store._state.messagesPage.newPostMessage = newDialog;
-    Render(store._state)
-
-  },
-
   dispatch(action) { // { type: 'ADD-POST' }
     // debugger    
     if (action.type === ADD_POST) {
@@ -93,17 +75,38 @@ const store = {
       store._state.profilePage.newPostText = action.newText;
       Render(store._state);
 
+    } else if (action.type === ADD_DIALOG) {
+      let newDialogObject = {
+        id: 5,
+        message: store._state.messagesPage.newPostMessage,
+        likeCounts: '0'
+      }
+      store._state.messagesPage.messagesData.push(newDialogObject);
+      store._state.messagesPage.newPostMessage = '';
+      Render(store._state)
+
+  } else if(action.type === UPDATE_NEW_DIALOG) {
+    store._state.messagesPage.newPostMessage = action.newDialog;
+    Render(store._state)
     }
   }
 
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });   
+export const addPostActionCreator = () => ({ type: ADD_POST });
 export const updateNewPostTextActionCreator = (newText) => {
-  return { 
-    type: UPDATE_NEW_POST_TEXT, newText: newText 
-  } 
-}  
+  return {
+    type: UPDATE_NEW_POST_TEXT, newText: newText
+  }
+}
+
+export const addDialogActionCreator = () => ({ type: ADD_DIALOG });
+export const updateNewDialogActionCreator = (newDialog) => {
+  return {
+    type: UPDATE_NEW_DIALOG, newDialog: newDialog
+  }
+}
+
 
 window.state = store;
 export default store;

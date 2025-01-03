@@ -1,3 +1,4 @@
+import React from 'react';
 import Logo from './../../img/neon-cocktail.png'; 
 import s from './Header.module.css';
 

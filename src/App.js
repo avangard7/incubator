@@ -28,16 +28,18 @@ const App = (props) => {
           />} path="/profile" />
 
           <Route element={<Dialogs
-            dialogsData={props.store._state.messagesPage.dialogsData}
-            messagesData={props.store._state.messagesPage.messagesData}
-            newPostMessage={props.store._state.messagesPage.newPostMessage}
+            messagesPage={props.store._state.messagesPage}
+            dispatch={props.dispatch}
+          /*    
             addDialog={props.store.addDialog}
             updateNewPostDialog={props.store.updateNewPostDialog}
+          */    
           />} path="/dialogs" />  
           
           <Route element={<News />} path="/news" />
           <Route element={<Music />} path="/music" />
           <Route element={<Settings />} path="/settings" />
+         
         </Routes>
 
       </div>
