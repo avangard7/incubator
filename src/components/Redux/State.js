@@ -1,17 +1,15 @@
 // import React from "react";
+import profileReducer from "./profile-reducer";
 import { Render } from "./Render";
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_DIALOG = 'ADD-DIALOG';
-const UPDATE_NEW_DIALOG = 'UPDATE-NEW-DIALOG';
+import sidebarReducer from "./sidebar-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
 const store = {
 
   _state: {
     profilePage: {
       // ------------------------------------------------
-      postsData: [
+      posts: [
 
         { id: 1, message: "Hi, how are you?", likeCounts: "2" },
         { id: 2, message: "It's my first post", likeCounts: "326" },
@@ -23,7 +21,7 @@ const store = {
       // ------------------------------------------------
 
     },
-    messagesPage: {
+    dialogsPage: {
       // ------------------------------------------------
       dialogsData: [
         { id: 1, name: "Dimych" },
@@ -34,7 +32,7 @@ const store = {
         { id: 6, name: "Valera" }
       ],
 
-      messagesData: [
+      messages: [
         { id: 1, message: "  Hi " },
         { id: 2, message: "  How are you ? " },
         { id: 3, message: "  Yo " },
@@ -47,65 +45,26 @@ const store = {
 
     },
 
-    navbar: {
-      sitebar: [
-        { id: 1, name: " Jessica " },
-        { id: 2, name: " Alice " },
-        { id: 3, name: " Viktoria " }
-      ]
-    }
+      sidebar: {}
 
   },
 
   dispatch(action) { // { type: 'ADD-POST' }
     // debugger    
-    if (action.type === ADD_POST) {
-      // debugger  
-      let newPost = {
-        id: 5,
-        message: store._state.profilePage.newPostText,
-        likeCounts: '0'
-      }
-      store._state.profilePage.postsData.push(newPost);
-      store._state.profilePage.newPostText = '';
-      Render(store._state);
+  
+    store._state.profilePage = profileReducer(store._state.profilePage, action);        
+    store._state.dialogsPage = dialogsReducer(store._state.dialogsPage, action);        
+    store._state.sidebar = sidebarReducer(store._state.sidebar, action);        
 
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-
-      store._state.profilePage.newPostText = action.newText;
-      Render(store._state);
-
-    } else if (action.type === ADD_DIALOG) {
-      let newDialogObject = {
-        id: 5,
-        message: store._state.messagesPage.newPostMessage,
-        likeCounts: '0'
-      }
-      store._state.messagesPage.messagesData.push(newDialogObject);
-      store._state.messagesPage.newPostMessage = '';
-      Render(store._state)
-
-  } else if(action.type === UPDATE_NEW_DIALOG) {
-    store._state.messagesPage.newPostMessage = action.newDialog;
-    Render(store._state)
-    }
+    // store._callSubscriber(store._state); 
+    Render(store._state);
   }
 
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const updateNewPostTextActionCreator = (newText) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT, newText: newText
-  }
-}
 
-export const addDialogActionCreator = () => ({ type: ADD_DIALOG });
-export const updateNewDialogActionCreator = (newDialog) => {
-  return {
-    type: UPDATE_NEW_DIALOG, newDialog: newDialog
-  }
-}
+
+
 
 
 window.state = store;

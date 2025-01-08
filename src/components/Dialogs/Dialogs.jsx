@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import  { addDialogActionCreator, updateNewDialogActionCreator } from './../Redux/State';
+import  { addDialogActionCreator, updateNewMessageBodyCreator } from './../Redux/dialogs-reducer';
 
 const Dialogs = (props) => {
     // debugger
@@ -11,17 +11,13 @@ const Dialogs = (props) => {
     // ------------------------------------------------------
     let addDialog = () => {  
         // debugger   
-        // props.addDialog();  
         props.dispatch(addDialogActionCreator());
     };
     // ------------------------------------------------------
 
     let onPostMessage = () => {
-        // console.log( 'work' )  
-        let newDialog = newPostElement.current.value;
-        // props.updateNewPostDialog(newDialog);
-        console.log(newDialog)  
-        let action = updateNewDialogActionCreator(newDialog); 
+        let body = newPostElement.current.value;
+        let action = updateNewMessageBodyCreator(body); 
         props.dispatch(action);  
     }
 
@@ -31,7 +27,7 @@ const Dialogs = (props) => {
                 <textarea
                     onChange={onPostMessage}
                     ref={newPostElement}
-                    value={props.messagesPage.newPostMessage} />
+                    value={props.dialogsPage.newPostMessage} />
 
                 <button className={s.postsButton} onClick={addDialog} >
                     Add post
@@ -41,12 +37,12 @@ const Dialogs = (props) => {
 
             <div className={s.dialogsItem}>
 
-                <DialogItem name={props.messagesPage.dialogsData} />
+                <DialogItem name={props.dialogsPage.dialogsData} />
 
             </div>
             <div className={s.messages}>
 
-                <Message message={props.messagesPage.messagesData} />
+                <Message message={props.dialogsPage.messages} />
 
             </div>
         </div>

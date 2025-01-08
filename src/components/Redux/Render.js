@@ -4,7 +4,7 @@ import { rerenderEntireTree } from './../../index';
 export const Render = (props) => {
     // debugger 
 
-    rerenderEntireTree(props.profilePage.postsData)  
+    rerenderEntireTree(props.profilePage.posts)  
 
 }
 

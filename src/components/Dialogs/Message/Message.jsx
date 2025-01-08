@@ -1,7 +1,7 @@
 import React from "react";
 
 const Message = (props) => {
-    
+    // debugger     
     const content = props.message.map((post) => 
     <div >
       <div>{post.message}</div>
